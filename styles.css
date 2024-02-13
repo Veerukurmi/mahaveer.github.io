@@ -1,73 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('image1.jpg'); /* Replace 'background.jpg' with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ph.D. Scholar | IIT Mandi</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
-<body>
-    <header>
-        <div class="container">
-            <h1>Ph.D. Scholar at IIT Mandi</h1>
-        </div>
-    </header>
+header {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for better readability */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Welcome to my personal webpage. I am a Ph.D. scholar at the Indian Institute of Technology Mandi, specializing in [Your Research Area]. I am passionate about [Your Research Interest], and my goal is to [Your Career Goal].</p>
-            <p>Feel free to explore more about my research, publications, and how to get in touch with me.</p>
-        </div>
-    </section>
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
 
-    <section id="research">
-        <div class="container">
-            <h2>Research</h2>
-            <p>I am currently working on research projects related to [Brief Description of Research Projects]. My research interests include [Your Research Interests].</p>
-        </div>
-    </section>
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Changed link color to white for better visibility */
+}
 
-    <section id="publications">
-        <div class="container">
-            <h2>Publications</h2>
-            <p>Here are some of my recent publications:</p>
-            <ul>
-                <li>[Publication 1]</li>
-                <li>[Publication 2]</li>
-                <li>[Publication 3]</li>
-                <!-- Add more publications as needed -->
-            </ul>
-        </div>
-    </section>
+section {
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better readability */
+    border-radius: 10px; /* Added rounded corners for sections */
+}
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>If you have any questions or inquiries, feel free to contact me:</p>
-            <p>Email: yourname@iitmandi.ac.in</p>
-            <p>Phone: [+91] XXXXXXXXXX</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Ph.D. Scholar | IIT Mandi. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+footer {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for better readability */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
