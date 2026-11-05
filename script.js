@@ -22,10 +22,8 @@
   const year = document.querySelector("#year");
   if (year) year.textContent = String(new Date().getFullYear());
   const canvas = document.querySelector("#hhg-canvas");
-  const slider = document.querySelector("#ellipticity");
-  const output = document.querySelector("#epsilon-value");
   const toggle = document.querySelector("#motion-toggle");
-  if (!canvas || !slider || !output || !toggle) return;
+  if (!canvas || !toggle) return;
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -34,7 +32,6 @@
   let lastTime = 0;
   let frame = null;
   let width = 0, height = 0, dpr = 1;
-  const epsilon = () => Number(slider.value);
   const setButton = () => {
     toggle.textContent = running ? "Pause motion" : "Play motion";
     toggle.setAttribute("aria-pressed", String(!running));
@@ -69,7 +66,6 @@
     ctx.setLineDash([]);
     const amp = height * .24;
     const cycles = 3.4;
-    const e = epsilon();
     const envelope = u => Math.pow(Math.sin(Math.PI * u), 2);
     const wave = (u, shift) => Math.sin(u * cycles * 2 * Math.PI + shift) * envelope(u);
     // The waveforms below are deliberately illustrative, not a solution of the Lewenstein model.
@@ -83,8 +79,6 @@
       ctx.strokeStyle = color;ctx.globalAlpha = alpha;ctx.lineWidth = lineWidth;ctx.stroke();ctx.globalAlpha = 1;
     };
     path("#2b6be9", .95, 2.6, u => wave(u, phase));
-    // Transverse driving-field component increases with ellipticity.
-    path("#7a9bd8", .6, 1.5, u => e * Math.cos(u * cycles * 2 * Math.PI + phase) * envelope(u));
     // Stylized high-frequency signal; amplitude does NOT encode HHG yield.
     path("#e8a04e", .9, 1.8, u => .42 * Math.sin(u * cycles * 2 * Math.PI * 7 + phase * 1.9) * envelope(u));
     const markerU = .68;
@@ -101,11 +95,6 @@
   };
   const begin = () => { if (frame === null && running) {lastTime=0;frame=requestAnimationFrame(tick);} };
   const stop = () => { if (frame !== null) cancelAnimationFrame(frame);frame=null;lastTime=0; };
-  slider.addEventListener("input", () => {
-    output.value = epsilon().toFixed(2);
-    output.textContent = epsilon().toFixed(2);
-    draw();
-  });
   toggle.addEventListener("click", () => {running=!running;setButton();if(running)begin();else stop();});
   document.addEventListener("visibilitychange", () => {
     if(document.hidden) stop(); else begin();
